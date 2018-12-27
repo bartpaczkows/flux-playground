@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flux-deployment
+  name: flux
   namespace: flux
 spec:
   replicas: 1
@@ -91,7 +91,7 @@ spec:
             # if you deployed memcached in a different namespace to flux,
             # or with a different service name, you can supply these
             # following two arguments to tell fluxd how to connect to it.
-            # - --memcached-hostname=memcached.default.svc.cluster.local
+            - --memcached-hostname=memcached.flux.svc.cluster.local
             # - --memcached-service=memcached
 
             # this must be supplied, and be in the tmpfs (emptyDir)
